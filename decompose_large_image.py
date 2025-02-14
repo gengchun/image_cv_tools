@@ -89,5 +89,8 @@ def process_large_image(input_path, output_folder, scale_ratio=0.2, min_ppt_area
             cv2.imwrite(f"{output_folder}/text_{text_index}.png", orig[y:y+h, x:x+w])
             text_index += 1
 
-if __name__ == "__main__":
+def main():
     process_large_image("input.jpg", "output", scale_ratio=0.2, min_ppt_area=50000)
+
+if __name__ == "__main__":
+    main()
