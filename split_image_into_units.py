@@ -1,9 +1,8 @@
 import cv2
 import numpy as np
 
-def split_image_into_units(image_path):
+def split_image_into_units(image):
     # 读取图像并预处理
-    image = cv2.imread(image_path)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
 
@@ -96,4 +95,5 @@ def split_image_into_units(image_path):
         cv2.imwrite(f'unit_{idx}_{type_str}.jpg', unit_region)
 
 # 使用示例
-split_image_into_units('input.jpg')
+image = cv2.imread('input.jpg')
+split_image_into_units(image)
